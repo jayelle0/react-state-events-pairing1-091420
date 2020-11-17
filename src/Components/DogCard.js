@@ -1,14 +1,19 @@
-import React from "react";
+import React, {useState} from "react";
 
-function DogCard() {
+function DogCard({img, name, breed}) {
+  const [toggle, setToggle] = useState(false)
+
   return (
     <div className="card">
       <span className="content">
-        <h2 >{/*Dog name goes here*/}</h2>
-        <img alt="" src={""} />
+        <h2 >{name}</h2>
+        <img alt="" src={img} />
       </span>
       <span className="bark">
-        <button>Bark</button>
+        <button onClick={() => {
+          setToggle(!toggle);
+        }}>Bark</button>
+      <h4 style={{ display: toggle ? "block" : "none" }}>Bark</h4>
       </span>
     </div>
   );
